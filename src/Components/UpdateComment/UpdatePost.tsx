@@ -65,7 +65,7 @@ export default function UpdatePost({
     onSettled: () => {},
   });
 
-  function handlePost(values: { body: string; image: string }) {
+  function handlePost(values: { body: string; image?: string }) {
     const formData = new FormData();
     if (values.body) {
       formData.append('body', values.body);

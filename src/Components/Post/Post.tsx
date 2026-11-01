@@ -60,11 +60,7 @@ export default function Post({
     });
   }
 
-  const {
-    data: deleteMutationData,
-    isPending,
-    mutate,
-  } = useMutation({
+  const { isPending, mutate } = useMutation({
     mutationFn: handleDeletePost,
     onSuccess: (res) => {
       toast.success(res.data.message);
@@ -194,7 +190,12 @@ export default function Post({
 
       {/* Top Comment */}
 
-      {topComment && <Comment comment={topComment} />}
+      {topComment && (
+  <Comment
+    comment={topComment}
+    queryKey={isPostDetails ? ['getPostComments'] : ['getAllPosts']}
+  />
+)}
 
       {/* All Comments */}
       {isPostDetails &&

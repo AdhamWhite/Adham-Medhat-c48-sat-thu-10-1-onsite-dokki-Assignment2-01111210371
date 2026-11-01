@@ -18,7 +18,7 @@ export default function Login() {
     mode: 'onChange',
   });
 
-  const { userLogin, setuserLogin } = useContext(AuthContext);
+ const { setuserLogin } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const { register, handleSubmit, formState } = form;

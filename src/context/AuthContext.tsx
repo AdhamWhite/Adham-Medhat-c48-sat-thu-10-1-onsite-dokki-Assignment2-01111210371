@@ -35,7 +35,7 @@ export default function AuthContextProvider({
   useEffect(() => {
     if (localStorage.getItem('userToken')) {
       const { user }: { user: string } = jwtDecode(
-        localStorage.getItem('userToken'),
+       localStorage.getItem('userToken') ?? '',
       );
       setuserId(user);
     }
